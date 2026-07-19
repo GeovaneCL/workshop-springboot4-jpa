@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+
 import jakarta.persistence.Table;
 
 @Entity
@@ -88,7 +91,7 @@ public class Product implements Serializable {
 	public Set<Category> getCategories() {
 		return categories;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
