@@ -3,7 +3,7 @@ package com.educandoweb.course.services;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
+
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
@@ -45,9 +45,14 @@ public class UserService {
 		}
 	}
 	public User update(Long id, User obj) {
+		try {
 		User entity = repository.getReferenceById(id);
 		updateData(entity, obj);
 		return repository.save(entity);
+		} catch(RuntimeException e ) {
+			e.printStackTrace();
+			throw new ResourceNotFoundException(id);
+		}
 	}
 
 	private void updateData(User entity, User obj) {
