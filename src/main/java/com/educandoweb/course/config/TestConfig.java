@@ -70,7 +70,7 @@ ProductRepository productRepository, OrderItemRepository orderItemRepository) {
 
 		userRepository.saveAll(Arrays.asList(u1, u2));
 		orderRepository.saveAll(Arrays.asList(o1, o2, o3));
-		productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
+		
 		categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
 
 		p1.getCategories().add(cat2);
@@ -79,7 +79,7 @@ ProductRepository productRepository, OrderItemRepository orderItemRepository) {
 		p3.getCategories().add(cat3);
 		p4.getCategories().add(cat3);
 		p5.getCategories().add(cat2);
-
+		productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 		productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 		OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice());
 		OrderItem oi2 = new OrderItem(o1, p3, 1, p3.getPrice());
